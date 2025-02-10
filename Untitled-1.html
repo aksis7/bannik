@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог Веников и Трав</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+           
+            border-top-left-radius: 18px;  /* Верхний левый угол */
+    border-top-right-radius: 18px; /* Верхний правый угол */
+    border-bottom-left-radius: 0;  /* Нижний левый (без скругления) */
+    border-bottom-right-radius: 0; /* Нижний правый (без скругления) */
+        }
+      
+
+        .top-image-container {
+            
+            
+            
+            width: 100%;
+            height: 100px;
+            background: url('Безымянный.png') no-repeat center center;
+            background-size: cover;
+            
+            
+            z-index: 1;
+           
+            
+            border-radius: 18px;
+        }
+        .top-bar-container {
+          
+            border-radius: 18px;
+            background-color: #ffffff;
+            padding: 20px 0;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            
+        }
+        .contact-info-container {
+            
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 15px;
+            background-color: #e0e0e0;
+            padding: 15px;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 18px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .contact-info {
+            
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 14px;
+            justify-content: center;
+            text-align: center;
+        }
+        header {
+            border-radius: 18px;
+            background-color: white;
+            padding: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+        .logo {
+            position: relative; /* Убираем absolute, чтобы логотип оставался внутри контейнера */
+            
+            padding: 5px;
+            border-radius: 50%;
+            z-index: 4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 5px; /* Отступ справа */
+        }
+
+        .logo img {
+            
+            background: none !important;
+             padding: 0;
+         border-radius: 0;
+            height: auto; /* Подстрой размер логотипа */
+            width: auto -10;
+            display: block;
+        }
+
+        nav {
+           
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px; /* Раздвигаем кнопки */
+            padding: 10px 0;
+        }
+
+        nav button {
+            border-radius: 18px;
+            padding: 12px 20px;
+            border: none;
+            background-color: #0078d4;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        nav button:hover {
+            
+            background-color: #005ea6;
+        }
+
+        main {
+            display: block !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            
+            
+        }
+        h1 {
+            text-align: center;
+        }
+        .catalog {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .product {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: none;
+            overflow: hidden;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 400px;
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            max-height: 250px;
+            object-fit: contain;
+            border-radius: 16px;
+            background-color: #f0f0f0;
+            padding: 10px;
+            max-width: 300px;
+        }
+        .product h3, .product p {
+            margin: 10px 0;
+            width: 100%;
+            text-align: center;
+        }
+        .product p {
+            font-size: 16px;
+            color: #555;
+            padding: 10px;
+            border-radius: 8px;
+            display: block;
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .top-image-container {
+                background-position: center top;
+                height: 190px; /* Уменьшаем высоту на мобильных */
+            }
+            .contact-info-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 10px; /* Чуть меньше расстояние на мобильных */
+                width: 95%;
+                padding: 10px;
+            }
+            .logo {
+            margin-bottom: 5px; /* Отступ вниз, если в колонке */
+    }
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav {
+                flex-direction: column;
+                width: 100%;
+            }
+            nav input {
+                width: 90%;
+            }
+            .catalog {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-image-container"></div>
+    <div class="top-bar-container">
+        <div class="logo">
+            <img src="generated-svg-image.svg" alt="Логотип">
+        </div>
+        <div class="contact-info-container">
+           
+            <div class="contact-info">
+                
+                <span>📧 manager@yandex.ru</span>
+                <span>📞 +7 (347) 273-05-05</span>
+                <span>🕒 Ежедневно с 08:00 до 22:00</span>
+            </div>
+        </div>
+    </div>
+    <header>
+        
+        <nav>
+            <button class="category-btn" data-target="veniki">Веники для бани</button>
+            <button class="category-btn" data-target="travy">Травы для бани</button>
+        </nav>
+    </header>
+    
+    <main id="veniki">
+        <h1>Веники для бани</h1>
+        <div class="catalog">
+            <div class="product">
+                <img src="bamboo_venik.webp" alt="Бамбуковый веник">
+                <h3>Бамбуковый веник 35 см</h3>
+                <p>Цена: 171 ₽</p>
+            </div>
+            <div class="product">
+                <img src="birch_venik.webp" alt="Березовый веник">
+                <h3>Березовый веник</h3>
+                <p>Цена: 182 ₽</p>
+            </div>
+            <div class="product">
+                <img src="oak_venik.webp" alt="Дубовый веник">
+                <h3>Дубовый веник</h3>
+                <p>Цена: 210 ₽</p>
+            </div>
+            <div class="product">
+                <img src="eucalyptus_venik.webp" alt="Эвкалиптовый веник">
+                <h3>Эвкалиптовый веник</h3>
+                <p>Цена: 250 ₽</p>
+            </div>
+        </div>
+    </main>
+    
+    <main id="travy" style="display: none;">
+        <h1>Травы для бани</h1>
+        <div class="catalog">
+            <div class="product">
+                <img src="mint_trava.webp" alt="Мята">
+                <h3>Мята</h3>
+                <p>Цена: 120 ₽</p>
+            </div>
+            <div class="product">
+                <img src="chamomile_trava.webp" alt="Ромашка">
+                <h3>Ромашка</h3>
+                <p>Цена: 140 ₽</p>
+            </div>
+            <div class="product">
+                <img src="lavender_trava.webp" alt="Лаванда">
+                <h3>Лаванда</h3>
+                <p>Цена: 160 ₽</p>
+            </div>
+            <div class="product">
+                <img src="sage_trava.webp" alt="Шалфей">
+                <h3>Шалфей</h3>
+                <p>Цена: 180 ₽</p>
+            </div>
+        </div>
+    
+    <script src="script.js"></script>
+
+</body>
+</html>

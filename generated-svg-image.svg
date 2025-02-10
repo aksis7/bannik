@@ -1,0 +1,20 @@
+<svg width="100" height="100" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Круглый фон -->
+    <circle cx="100" cy="100" r="95" fill="#f5f5dc" stroke="#8b5e3b" stroke-width="5"/>
+    
+    <!-- Ведро с паром -->
+    <rect x="60" y="80" width="80" height="60" fill="#d2a679" stroke="#8b5e3b" stroke-width="4" rx="5"/>
+    <line x1="60" y1="100" x2="140" y2="100" stroke="#8b5e3b" stroke-width="4"/>
+    <line x1="60" y1="120" x2="140" y2="120" stroke="#8b5e3b" stroke-width="4"/>
+    <path d="M85 70 C90 60, 110 60, 115 70" stroke="#8b5e3b" stroke-width="4" fill="none"/>
+    <path d="M100 50 C105 40, 95 30, 100 20" stroke="#8b5e3b" stroke-width="4" fill="none"/>
+    <path d="M110 50 C115 40, 105 30, 110 20" stroke="#8b5e3b" stroke-width="4" fill="none"/>
+    
+    <!-- Веник -->
+    <line x1="140" y1="70" x2="150" y2="140" stroke="#8b5e3b" stroke-width="6"/>
+    <path d="M150 140 C155 160, 125 160, 130 140" fill="#a67c52" stroke="#8b5e3b" stroke-width="3"/>
+    
+    <!-- Листья вокруг -->
+    <path d="M50 100 C30 80, 30 120, 50 100" fill="#228B22"/>
+    <path d="M150 100 C170 80, 170 120, 150 100" fill="#228B22"/>
+</svg>
