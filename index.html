@@ -50,39 +50,173 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* Center the items */
+    --bs-gutter-x: 0px; /* Уменьшает горизонтальный отступ */
+    --bs-gutter-y: 0px; /* Уменьшает вертикальный отступ */
 }
 
-.card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-.card-body {
-    width: 100%;
-    max-width: 100%;
-}
-.card-title {
-    font-size: clamp(14px, 2vw, 22px); /* Минимум 14px, максимум 22px */
-    word-wrap: break-word;
-    text-align: center;
-}
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card-body {
+            width: 100%;
+            max-width: 100%;
+        }
+        .card-title {
+            font-size: clamp(14px, 2vw, 22px); /* Минимум 14px, максимум 22px */
+            word-wrap: break-word;
+            text-align: center;
+        }
 
 
 
-.contact-info {
-    margin-bottom: 15px; /* Отступ снизу для разделения с навигацией */
-}
-.top-image-container {
-    margin-bottom: 20px; /* Отступ снизу у баннера */
-}
+        .contact-info {
+            margin-bottom: 15px; /* Отступ снизу для разделения с навигацией */
+        }
+        .top-image-container {
+            margin-bottom: 20px; /* Отступ снизу у баннера */
+        }
 
-.container.my-3 {
-    margin-top: 20px; /* Отступ сверху у контактного блока */
-}
-.navbar {
-    margin-top: 10px; /* Отступ сверху для дополнительного пространства */
-}
+        .container.my-3 {
+            margin-top: 20px; /* Отступ сверху у контактного блока */
+        }
+        .menu-btn {
+            position: fixed; /* Фиксируем кнопку */
+            top: 10px; /* Отступ сверху */
+            left: 10px; /* Отступ слева */
+            width: 50px; /* Делаем кнопку квадратной */
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px; /* Немного скругляем */
+            border: 1px solid #ccc;
+            background-color: white;
+            z-index: 1050;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-btn:hover {
+            background-color: #f8f9fa;
+        }
+
+        .dropdown-menu {
+            min-width: 150px; /* Ограничиваем ширину меню */
+            text-align: center; /* Выравниваем текст */
+        }
+
+        .dropdown-item {
+            cursor: pointer;
+        }
+        /* Кнопка прокрутки вверх */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px; /* Оставляем квадратной, если нужно */
+            background-color: black; /* Заменяем синий на черный */
+            color: white; /* Цвет стрелки */
+            border: none;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1050;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        /* Эффект при наведении */
+        .scroll-top-btn:hover {
+            background-color: #333; /* Серый при наведении */
+        }
+        /* Кнопка связи */
+        /* Кнопка связи */
+        .contact-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #eff1f3;
+            color: white;
+            font-size: 24px;
+            border: none;
+            z-index: 1050;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Убираем стрелку у выпадающего меню */
+        .dropdown-toggle::after {
+            display: none !important;
+        }
+
+        /* Выпадающее меню (убираем лишние рамки) */
+        .contact-menu {
+            min-width: auto;
+            padding: 8px 10px;
+            border-radius: 15px;
+            text-align: center;
+            position: absolute !important;
+            bottom: 65px; /* Поднимаем над кнопкой */
+            left: 50%;
+            transform: translateX(-50%); /* Центрируем */
+            background: white;
+            box-shadow: 2px 2px 10px rgba(236, 236, 236, 0.2);
+            border: 1px solid #ddd; /* Уменьшаем рамку */
+        }
+        /* Убираем стрелку у меню */
+        .dropdown-toggle::after {
+            display: none !important;
+        }
+        .contact-btn:hover {
+            background-color: #ffffff;
+        }
+
+        /* Контейнер выпадающего меню */
+        .dropdown-menu {
+            min-width: auto; /* Автоматическая ширина */
+            text-align: center;
+            padding: 0px; /* Уменьшаем отступы */
+            border-radius: 80px;
+        }
+
+        /* Убираем фоновый квадрат вокруг иконок */
+        .dropdown-menu li {
+            list-style: none;
+            padding: 0px;
+        }
+
+        /* Иконки мессенджеров */
+        .icon {
+            width: 80px; /* Оптимальный размер */
+            height: 80px;
+            object-fit: contain;
+            border-radius: 50%; /* Делаем круглыми */
+            transition: transform 0.2s ease-in-out;
+        }
+
+        /* Увеличение иконки при наведении */
+        .icon:hover {
+            transform: scale(1.1);
+        }
+                .phone-icon {
+            width: 24px; /* Оптимальный размер */
+            height: 24px;
+            object-fit: contain;
+        }
+
+    
+
+
 
         .product img {
             width: 100%;
@@ -115,37 +249,59 @@
     <!-- Контактная информация -->
     <!-- Контактная информация (остается с container) -->
     <div class="container">
-        <div class="bg-light p-3 rounded text-center shadow-sm  border-bottom">
-            <a class="navbar-brand" href="#">
-                <img src="generated-svg-image.svg" alt="Логотип" width="50" loading="lazy">
-            </a>
-            <span>📧 manager@yandex.ru</span> |
-            <span>📞 +7 (347) 273-05-05</span> |
-            <span>🕒 Ежедневно с 08:00 до 22:00</span>
+        <div class="bg-light p-3 rounded text-center shadow-sm border-bottom d-flex flex-column flex-md-row align-items-center justify-content-center gap-3 flex-wrap">
+            <img src="generated-svg-image.svg" alt="Логотип" class="rounded-circle" width="50" height="50">
+            <div class="text-nowrap">📧 <a href="mailto:manager@yandex.ru">manager@yandex.ru</a></div>
+            <div class="text-nowrap">📞 <a href="tel:+73472730505">+7 (347) 273-05-05</a></div>
+            <div class="text-nowrap">🕒 Ежедневно с 08:00 до 22:00</div>
         </div>
+        <button id="scrollTopBtn" class="btn btn-primary" style="position: fixed; bottom: 20px; right: 20px;width: auto;">
+            ⬆
+        </button>
+        
     
-        <nav class="navbar navbar-light bg-light shadow-sm border-bottom">
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-center text-center" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <button type="button" class="btn btn-outline-primary" id="showVeniki">Веники</button>
-                        <button type="button" class="btn btn-outline-primary" id="showTravy">Травы</button>
-                        <button type="button" class="btn btn-outline-secondary" id="showAll">Все товары</button>
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        
     </div>
     
+    <!-- Навигация -->
+<!-- Кнопка меню с выпадающим списком -->
+<div class="dropdown">
+    <button class="menu-btn btn btn-light " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        ☰
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><button class="dropdown-item" id="showVeniki">Веники</button></li>
+        <li><button class="dropdown-item" id="showTravy">Травы</button></li>
+        <li><button class="dropdown-item" id="showAll">Все товары</button></li>
+    </ul>
+</div>
+
+
+    <!-- Кнопка связи с выпадающим меню -->
+<!-- Кнопка связи с выпадающим меню -->
+<div class="dropdown">
+    <button class="contact-btn btn btn-primary dropdown-toggle" type="button" id="contactMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="your-phone-icon.png" alt="Call" class="phone-icon">
+    </button>
+    <ul class="dropdown-menu p-2" aria-labelledby="contactMenuButton">
+        <li>
+            <a href="https://wa.me/79001234567" target="_blank">
+                <img src="whatsapp.png" alt="WhatsApp" class="icon">
+            </a>
+        </li>
+        <li>
+            <a href="https://t.me/aksis777" target="_blank">
+                <img src="telegram.png" alt="Telegram" class="icon">
+            </a>
+        </li>
+    </ul>
+</div>
+
 
     <!-- Каталог веников -->
     
     <div class="container">
-    <div class="row g-4">
+    <div class="row g-2">
     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
         
         <div class="card text-center h-100 border-0 bg-transparent position-relative"data-category="veniki">
@@ -234,9 +390,7 @@
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <button id="scrollTopBtn" class="btn btn-primary" style="position: fixed; bottom: 20px; right: 20px; display: none;width: auto;">
-        ⬆
-    </button>
+    
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const showVenikiBtn = document.getElementById("showVeniki");
