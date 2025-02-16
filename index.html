@@ -17,7 +17,8 @@
         html {
             scroll-behavior: smooth;
         }
-   
+        
+
         .navbar {
             background-color: #f8f9fa; /* Светло-серый */
             border-bottom: 2px solid #ddd; /* Граница */
@@ -130,6 +131,10 @@
             z-index: 1050;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
+        #scrollTopBtn {
+    right: 20px;
+    left: auto; /* убираем левое позиционирование */
+}
 
         /* Убираем стрелку у выпадающего меню */
         .dropdown-toggle::after {
@@ -163,20 +168,25 @@
             min-width: auto; /* Автоматическая ширина */
             text-align: center;
             padding: 0px; /* Уменьшаем отступы */
-            border-radius: 10px;
+            border-radius: 50px;
         }
+        .custom-menu {
+    border-radius: 10px; /* ваш желаемый радиус */
+}
+
 
         /* Убираем фоновый квадрат вокруг иконок */
         .dropdown-menu li {
             list-style: none;
             padding: 0px;
+            margin-bottom: 10px; /* 1px между иконками */
         }
 
         /* Иконки мессенджеров */
         .icon {
-            width: 80px; /* Оптимальный размер */
-            height: 80px;
-            object-fit: contain;
+            width: 50px; /* Оптимальный размер */
+            height: 50px;
+            object-fit: cover;
             border-radius: 50%; /* Делаем круглыми */
             transition: transform 0.2s ease-in-out;
         }
@@ -193,6 +203,7 @@
 
     
 
+        
 
 
         .product img {
@@ -212,7 +223,7 @@
     <!-- Верхний баннер -->
     <div class="container-fluid p-0">
         <div class="top-image-container position-relative">
-            <img src="Безымянный.png" class="img-fluid w-100 rounded" alt="Баня & Веники" loading="lazy">
+            <img src="5a43455a-f1bf-4280-864c-3468940043ea_67b232937b0f51.95947770.jpeg" class="img-fluid w-100 rounded" alt="Баня & Веники" loading="lazy">
         </div>
     </div>
     
@@ -224,7 +235,7 @@
 
     
     <!-- Контактная информация -->
-    <!-- Контактная информация (остается с container) -->
+    <!-- Контактная информация (остается с container) 
     <div class="container">
         <div class="bg-light p-3 rounded text-center shadow-sm border-bottom d-flex flex-column flex-md-row align-items-center justify-content-center gap-3 flex-wrap">
             <img src="a8d788f4-5fce-4c45-a23f-cc7dbd8ad921.jpg" alt="Логотип" class="rounded-circle" width="50" height="50">
@@ -237,17 +248,17 @@
     
         
     </div>
-    
+    -->
     <!-- Навигация -->
 <!-- Кнопка меню с выпадающим списком -->
 <div class="dropdown">
     <button class="menu-btn btn btn-light " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
         ☰
     </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <li><button class="dropdown-item" id="showVeniki">Веники</button></li>
-        <li><button class="dropdown-item" id="showTravy">Травы</button></li>
-        <li><button class="dropdown-item" id="showAll">Все товары</button></li>
+    <ul class="dropdown-menu custom-menu">
+        <li><button class="dropdown-item" id="showVeniki" >Веники</button></li>
+        <li><button class="dropdown-item" id="showTravy" >Травы</button></li>
+        <li><button class="dropdown-item"  id="showAll" >Все товары</button></li>
     </ul>
 </div>
 
@@ -255,13 +266,23 @@
     <!-- Кнопка связи с выпадающим меню -->
 <!-- Кнопка связи с выпадающим меню -->
 <div class="dropdown">
-    <button class="contact-btn btn btn-primary dropdown-toggle" type="button" id="contactMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="contact-btn btn btn-light dropdown-toggle" type="button" id="contactMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
         <img src="your-phone-icon.png" alt="Call" class="phone-icon">
     </button>
     <ul class="dropdown-menu p-2" aria-labelledby="contactMenuButton">
         <li>
             <a href="https://wa.me/79001234567" target="_blank">
                 <img src="whatsapp.png" alt="WhatsApp" class="icon">
+            </a>
+        </li>
+        <li>
+            <a href="mailto:manager@yandex.ru" target="_blank">
+                <img src="free-icon-arroba-7980598.png" alt="messenger" class="icon">
+            </a>
+        </li>
+        <li>
+            <a href="+73472730505" target="_blank">
+                <img src="free-icon-phone-call-455604.png" alt="nomer" class="icon">
             </a>
         </li>
         <li>
@@ -275,7 +296,7 @@
 
     <!-- Каталог веников -->
     
-    <div class="container">
+    <div id="products" div class="container">
     <div class="row g-2">
     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
         
@@ -284,7 +305,7 @@
             <img src="bamboo_venik.webp" class="card-img-top p-2 rounded-5" alt="Бамбуковый веник" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
             <div class="card-body">
                 <h5 class="card-title fw-bold text-uppercase">Бамбуковый веник</h5>
-                <p class="card-text text-danger fw-bold fs-4">534 ₽</p>
+                <p class="card-text  fw-bold fs-4">534 ₽</p>
                 
             </div>
         </div>
@@ -295,7 +316,7 @@
             <img src="birch_venik.webp" class="card-img-top p-2 rounded-5" alt="Березовый веник" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
             <div class="card-body">
                 <h5 class="card-title fw-bold text-uppercase">Березовый веник</h5>
-                <p class="card-text text-danger fw-bold fs-4">182 ₽</p>
+                <p class="card-text  fw-bold fs-4">182 ₽</p>
             </div>
         </div>
     </div>
@@ -305,7 +326,7 @@
             <img src="oak_venik.webp" class="card-img-top p-2 rounded-5" alt="Дубовый веник" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
             <div class="card-body">
                 <h5 class="card-title fw-bold text-uppercase">Дубовый веник</h5>
-                <p class="card-text text-danger fw-bold fs-4">210 ₽</p>
+                <p class="card-text  fw-bold fs-4">210 ₽</p>
             </div>
         </div>
     </div>
@@ -315,7 +336,7 @@
             <img src="eucalyptus_venik.webp" class="card-img-top p-2 rounded-5" alt="Эвкалиптовый веник" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
             <div class="card-body">
                 <h5 class="card-title fw-bold text-uppercase ">Эвкалиптовый веник</h5>
-                <p class="card-text text-danger fw-bold fs-4">250 ₽</p>
+                <p class="card-text  fw-bold fs-4">250 ₽</p>
             </div>
         </div>
     </div>
@@ -326,7 +347,7 @@
             <img src="mint_trava.webp" class="card-img-top p-2 rounded-5" alt="Мята" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
             <div class="card-body">
                 <h5 class="card-title fw-bold text-uppercase">Мята</h5>
-                <p class="card-text text-danger fw-bold fs-4">120 ₽</p>
+                <p class="card-text  fw-bold fs-4">120 ₽</p>
             </div>
         </div>
     </div>
@@ -336,7 +357,7 @@
             <img src="chamomile_trava.webp" class="card-img-top p-2 rounded-5" alt="Ромашка" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
             <div class="card-body">
                 <h5 class="card-title fw-bold text-uppercase">Ромашка</h5>
-                <p class="card-text text-danger fw-bold fs-4">140 ₽</p>
+                <p class="card-text  fw-bold fs-4">140 ₽</p>
             </div>
         </div>
     </div>
@@ -346,7 +367,7 @@
             <img src="lavender_trava.webp" class="card-img-top p-2 rounded-5" alt="Лаванда" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
             <div class="card-body">
                 <h5 class="card-title fw-bold text-uppercase">Лаванда</h5>
-                <p class="card-text text-danger fw-bold fs-4">160 ₽</p>
+                <p class="card-text  fw-bold fs-4">160 ₽</p>
             </div>
         </div>
     </div>
@@ -356,16 +377,17 @@
             <img src="sage_trava.webp" class="card-img-top p-2 rounded-5" alt="Шалфей" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
             <div class="card-body">
                 <h5 class="card-title fw-bold text-uppercase">Шалфей</h5>
-                <p class="card-text text-danger fw-bold fs-4">180 ₽</p>
+                <p class="card-text  fw-bold fs-4">180 ₽</p>
             </div>
         </div>
     </div>
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <button id="scrollTopBtn" class="btn btn-primary" style="position: fixed; bottom: 20px; right: 20px;width: auto;">
-        ⬆
+    <button id="scrollTopBtn" class="contact-btn" type="button">
+        <img src="free-icon-up-arrrows-5868467.png" alt="Call" class="phone-icon">
     </button>
+    
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const showVenikiBtn = document.getElementById("showVeniki");
@@ -394,7 +416,20 @@
             }
         });
     </script>
-    
+    <script>
+        document.getElementById("showVeniki").addEventListener("click", function() {
+        document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+        });
+
+        document.getElementById("showTravy").addEventListener("click", function() {
+        document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+        });
+
+        document.getElementById("showAll").addEventListener("click", function() {
+        document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+        });
+        </script>
+        
     
     <script>
         const scrollTopBtn = document.getElementById("scrollTopBtn");
