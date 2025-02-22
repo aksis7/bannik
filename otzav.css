@@ -1,0 +1,43 @@
+.review-card {
+  background: #fff;
+  border-radius: 15px;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+}
+
+.review-avatar {
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #f0f0f0;
+}
+
+.review-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.review-date {
+  font-size: 0.85rem;
+}
+
+.review-text {
+  line-height: 1.5;
+  margin: 0;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);             /* инверсия цвета */
+  background-color: rgba(0,0,0,0.2); /* полупрозрачный тёмный фон */
+  border-radius: 50%;            /* скруглённый фон */
+  width: 40px; 
+  height: 40px;
+  background-size: 30px 30px;    /* масштаб иконки внутри */
+}
+
+

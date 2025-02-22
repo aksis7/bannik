@@ -1,0 +1,73 @@
+ /* Контейнер с горизонтальным скроллом */
+ .horizontal-gallery {
+    white-space: nowrap; 
+    overflow-x: auto; 
+    padding: 10px;
+  }
+
+  /* Каждая ссылка-миниатюра */
+  .gallery-link {
+    position: relative;    /* нужно для оверлея */
+    display: inline-block; /* размещаем миниатюры в одну строку */
+    border-radius: 8px;    /* скруглённые углы */
+    margin-right: 10px;    /* отступ между миниатюрами */
+    overflow: hidden;      /* обрезаем содержимое по скруглённым углам */
+    vertical-align: middle; /* чтобы картинки были на одной линии по вертикали */
+  }
+  .gallery-link:last-child {
+    margin-right: 0; /* у последней ссылки убираем отступ */
+  }
+
+  /* При наведении картинка слегка увеличивается */
+  .gallery-link img {
+    transition: transform 0.2s ease;
+    width: 200px; 
+    height: 200px; 
+    object-fit: cover;
+  }
+  .gallery-link:hover img {
+    transform: scale(1.02);
+  }
+
+  /* Полупрозрачный слой поверх картинки при ховере */
+  .gallery-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+ 
+  
+  .gallery-link:hover .gallery-overlay {
+    opacity: 1;
+  }
+
+  /* Иконка лупы */
+  .gallery-overlay-icon {
+    color: #fff;
+    font-size: 2rem; 
+  }
+  .gallery-caption {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    display: none; /* Скрываем на десктопе, показываем на мобильных */
+  }
+  
+  /* Показать подпись на мобильных */
+  @media (max-width: 768px) {
+    .gallery-caption {
+      display: block;
+    }
+  }
+  
