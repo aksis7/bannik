@@ -7,7 +7,9 @@
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="otzav.css" rel="stylesheet ">
+    <link href="gallery.css" rel="stylesheet ">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -78,27 +80,32 @@
         }
         .top-image-container {
             margin-bottom: 20px; /* Отступ снизу у баннера */
+            
         }
+        
+        
 
         .container.my-3 {
             margin-top: 20px; /* Отступ сверху у контактного блока */
+            margin-bottom: 20px;
+            
         }
         .menu-btn {
             position: fixed; /* Фиксируем кнопку */
-            top: 10px; /* Отступ сверху */
-            left: 10px; /* Отступ слева */
+            top: 40px; /* Отступ сверху */
+             /*left: 10px; Отступ слева */
             width: 50px; /* Делаем кнопку квадратной */
             height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 100x; /* Немного скругляем */
+            border-radius: 50%; /* Немного скругляем */
             border: 1px solid #ccc;
             background-color: white;
             z-index: 1050;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
-
+       
         .menu-btn:hover {
             background-color: #f8f9fa;
         }
@@ -135,6 +142,16 @@
     right: 20px;
     left: auto; /* убираем левое позиционирование */
 }
+#menuBtnRight {
+    right: 10px; /* Отступ справа */
+    left: auto;  /* Отменяем отступ слева */
+}
+#searchBtn {
+    right: 70px; /* или больше/меньше по вкусу */
+    left: auto;
+}
+
+
 
         /* Убираем стрелку у выпадающего меню */
         .dropdown-toggle::after {
@@ -184,8 +201,8 @@
 
         /* Иконки мессенджеров */
         .icon {
-            width: 50px; /* Оптимальный размер */
-            height: 50px;
+            width: 24px; /* Оптимальный размер */
+            height: 24px;
             object-fit: cover;
             border-radius: 50%; /* Делаем круглыми */
             transition: transform 0.2s ease-in-out;
@@ -202,8 +219,19 @@
         }
 
     
+        .hr-line {
+  width: 55%;         /* или 200px, или clamp(100px, 30%, 300px) */
+ 
+  margin: 1.5rem auto; /* отступ сверху и снизу 0.5rem */
+}
 
         
+        .logo-img {
+  width: clamp(25px, 15vw, 100px);
+  height: clamp(25px, 15vw, 100px);
+  object-fit: cover;
+  border-radius: 50%; /* Круг, если нужно */
+}
 
 
         .product img {
@@ -215,52 +243,143 @@
             background-color: #f0f0f0;
             padding: 10px;
         }
+        .responsive-text {
+        font-size: clamp(5px, 3vw, 16px);
+        /* при необходимости можно добавить line-height */
+        line-height: 1.2;
+        }
+
+        @media (max-width: 576px) {
+        /* Уменьшаем фиксированные кнопки */
+        .menu-btn {
+            top: 20px; /* Отступ сверху */
+            width: 40px;
+            height: 40px;
+            border-radius: 50%; /* Сделаем круг, если хотите */
+        }
+        .contact-btn {
+            width: 40px;
+            height: 40px;
+        }
+        #searchBtn {
+    right: 50px; /* или больше/меньше по вкусу */
+    left: auto;
+}
+        /* Уменьшаем иконки внутри кнопок */
+        .icon {
+            width: 24px;
+            height: 24px;
+        }
+        }
     </style>
 </head>
 
 <body>
+    <!-- Контейнер с отступами сверху и снизу -->
+<!-- Контейнер с небольшими отступами сверху и снизу -->
+<div class="row align-items-center justify-content-between">
+    <!-- Левая часть (логотип + телефон) -->
+    <div class="col-auto d-flex align-items-center">
+<button id="searchBtn" class="btn btn-light btn-sm p-1 menu-btn" type="button">
+    <img src="free-icon-search-2414255.png" alt="Search" class="icon">
+  </button>
+</div>
+</div>
+  
+  
 
+  
+  
+  
+<div class="dropdown">
+    <button id="menuBtnRight" class="menu-btn btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        ☰
+    </button>
+    
+    <ul class="dropdown-menu custom-menu">
+        <li><button class="dropdown-item"  id="showotzav" >Отзывы</button></li>
+        <li><button class="dropdown-item" id="showGallery">Галерея</button></li>
+        <li><button class="dropdown-item" id="showVeniki" >Веники</button></li>
+        <li><button class="dropdown-item" id="showTravy" >Травы</button></li>
+        <li><button class="dropdown-item"  id="showAll" >Все товары</button></li>
+        
+    </ul>
+</div>
+
+  
+    <div class="mt-3 mb-3 px-4">
+  
+    <!-- Строка Bootstrap с вертикальным выравниванием по центру и распределением по краям -->
+    <div class="row align-items-center justify-content-between">
+      
+      <!-- Левая часть (логотип + текст) -->
+      <div class="col-auto d-flex align-items-center">
+        <!-- Круглый логотип -->
+        <img 
+            src="logo.png"
+            alt="Логотип"
+            class="logo-img"
+            >
+
+        <!-- Блок с телефоном и временем (вертикально) -->
+        <div class="ms-2">
+          <!-- Телефон жирным -->
+          <div class="fw-bold text-nowrap responsive-text">
+            +7 (347) 272-05-05
+          </div>
+          <!-- Время работы (серым, чуть меньше шрифт) -->
+          <div class="text-muted small text-nowrap responsive-text">
+            Ежедневно с 8:00 до 22:00
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+        
+    
+  <div class="col-auto ms-3 me-3">
+    
     <!-- Верхний баннер -->
     <div class="container-fluid p-0">
         <div class="top-image-container position-relative">
             <img src="5a43455a-f1bf-4280-864c-3468940043ea_67b232937b0f51.95947770.jpeg" class="img-fluid w-100 rounded" alt="Баня & Веники" loading="lazy">
         </div>
     </div>
-    
-    
-    
+</div>
+<!-- Модальное окно для поиска -->
+<script src="script_modal.js"></script>
+<!-- Модальное окно для поиска -->
+  <!-- Модальное окно для поиска (универсальное для ПК и мобильных) -->
+  <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen-sm-down">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="searchModalLabel">Поиск товаров</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body">
+          <input id="searchInput" type="text" class="form-control" placeholder="Введите название товара">
+          <!-- Контейнер для динамических результатов поиска (используется на мобильных) -->
+          <div id="searchResults" style="max-height: 60vh; overflow-y: auto; margin-top: 10px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
     
 
     <!-- Навигация -->
 
     
     <!-- Контактная информация -->
-    <!-- Контактная информация (остается с container) 
-    <div class="container">
-        <div class="bg-light p-3 rounded text-center shadow-sm border-bottom d-flex flex-column flex-md-row align-items-center justify-content-center gap-3 flex-wrap">
-            <img src="a8d788f4-5fce-4c45-a23f-cc7dbd8ad921.jpg" alt="Логотип" class="rounded-circle" width="50" height="50">
-            <div class="text-nowrap">📧 <a href="mailto:manager@yandex.ru">manager@yandex.ru</a></div>
-            <div class="text-nowrap">📞 <a href="tel:+73472730505">+7 (347) 273-05-05</a></div>
-            <div class="text-nowrap">🕒 Ежедневно с 08:00 до 22:00</div>
-        </div>
-        
-        
+    <!-- Контактная информация (остается с container) -->
     
-        
-    </div>
-    -->
+    
     <!-- Навигация -->
 <!-- Кнопка меню с выпадающим списком -->
-<div class="dropdown">
-    <button class="menu-btn btn btn-light " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-        ☰
-    </button>
-    <ul class="dropdown-menu custom-menu">
-        <li><button class="dropdown-item" id="showVeniki" >Веники</button></li>
-        <li><button class="dropdown-item" id="showTravy" >Травы</button></li>
-        <li><button class="dropdown-item"  id="showAll" >Все товары</button></li>
-    </ul>
-</div>
+
 
 
     <!-- Кнопка связи с выпадающим меню -->
@@ -296,8 +415,144 @@
 
     <!-- Каталог веников -->
     
-    <div id="products" div class="container">
+    <div id="products" class="container">
+        <div class="text-center my-4">
+            <hr class="hr-line">
+            <h2 class="text-uppercase">ВЕНИК</h2>
+            <hr class="hr-line">
+          </div>
+          <div class="row g-2">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                <div class="card text-center h-100 border-0 bg-transparent position-relative" data-category="veniki">
+                  <!-- Карусель -->
+                  <div id="carouselBambooVenik" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="bamboo_venik.webp" class="d-block w-100 p-2 rounded-5" alt="Бамбуковый веник фото 1" style="aspect-ratio: 1 / 1; object-fit: cover;">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="chamomile_trava.webp" class="d-block w-100 p-2 rounded-5" alt="Бамбуковый веник фото 2" style="aspect-ratio: 1 / 1; object-fit: cover;">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="free-icon-up-arrrows-5868467.png" class="d-block w-100 p-2 rounded-5" alt="Бамбуковый веник фото 3" style="aspect-ratio: 1 / 1; object-fit: cover;">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselBambooVenik" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Предыдущий</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselBambooVenik" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Следующий</span>
+                    </button>
+                  </div>
+                  <!-- Содержимое карточки -->
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold text-uppercase">Бамбуковый веник</h5>
+                    <p class="card-text fw-bold fs-4">534 ₽</p>
+                  </div>
+                </div>
+              </div>
+        
+        <!-- Карточка: Березовый веник -->
+    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+        <div class="card text-center h-100 border-0 bg-transparent position-relative" data-category="veniki">
+          <!-- Карусель для Березового веника -->
+          <div id="carouselBirchVenik" class="carousel slide" data-bs-ride="carousel"><!--  data-bs-ride="carousel" - это автоматическая прокрутка-->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="birch_venik.webp" class="d-block w-100 p-2 rounded-5" alt="Березовый веник фото 1" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
+              </div>
+              <div class="carousel-item">
+                <img src="birch_venik.webp" class="d-block w-100 p-2 rounded-5" alt="Березовый веник фото 2" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
+              </div>
+              <div class="carousel-item">
+                <img src="birch_venik.webp" class="d-block w-100 p-2 rounded-5" alt="Березовый веник фото 3" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselBirchVenik" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Предыдущий</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselBirchVenik" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Следующий</span>
+            </button>
+          </div>
+          <!-- Содержимое карточки -->
+          <div class="card-body">
+            <h5 class="card-title fw-bold text-uppercase">Березовый веник</h5>
+            <p class="card-text fw-bold fs-4">182 ₽</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Карточка: Дубовый веник -->
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+        <div class="card text-center h-100 border-0 bg-transparent position-relative" data-category="veniki">
+          <!-- Карусель для Дубового веника   -->
+          <div id="carouselOakVenik" class="carousel slide" data-bs-ride="carousel"> <!-- data-bs-interval="10000"-->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="oak_venik.webp" class="d-block w-100 p-2 rounded-5" alt="Дубовый веник фото 1" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
+              </div>
+              <div class="carousel-item">
+                <img src="oak_venik.webp" class="d-block w-100 p-2 rounded-5" alt="Дубовый веник фото 2" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
+              </div>
+              <div class="carousel-item">
+                <img src="oak_venik.webp" class="d-block w-100 p-2 rounded-5" alt="Дубовый веник фото 3" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselOakVenik" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Предыдущий</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselOakVenik" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Следующий</span>
+            </button>
+          </div>
+          <!-- Содержимое карточки -->
+          <div class="card-body">
+            <h5 class="card-title fw-bold text-uppercase">Дубовый веник</h5>
+            <p class="card-text fw-bold fs-4">210 ₽</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+        <div class="card text-center h-100 border-0 bg-transparent position-relative" data-category="veniki">
+          <!-- Карусель для Эвкалиптового веника -->
+          <div id="carouselEucalyptusVenik" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="eucalyptus_venik.webp" class="d-block w-100 p-2 rounded-5" alt="Эвкалиптовый веник фото 1" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
+              </div>
+              <div class="carousel-item">
+                <img src="eucalyptus_venik.webp" class="d-block w-100 p-2 rounded-5" alt="Эвкалиптовый веник фото 2" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
+              </div>
+              <div class="carousel-item">
+                <img src="eucalyptus_venik.webp" class="d-block w-100 p-2 rounded-5" alt="Эвкалиптовый веник фото 3" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselEucalyptusVenik" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Предыдущий</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselEucalyptusVenik" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Следующий</span>
+            </button>
+          </div>
+          <!-- Содержимое карточки -->
+          <div class="card-body">
+            <h5 class="card-title fw-bold text-uppercase">Эвкалиптовый веник</h5>
+            <p class="card-text fw-bold fs-4">250 ₽</p>
+          </div>
+        </div>
+      </div>
+    <!--
     <div class="row g-2">
+    
     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
         
         <div class="card text-center h-100 border-0 bg-transparent position-relative"data-category="veniki">
@@ -340,8 +595,153 @@
             </div>
         </div>
     </div>
+-->
+    <!-- Заголовок "ТРАВЫ" -->
+<div class="text-center my-4">
+    <hr class="hr-line">
+    <h2 class="text-uppercase">ТРАВЫ</h2>
+    <hr class="hr-line">
+  </div>
+  <!-- Карточка: Мята -->
+<div class="col-lg-3 col-md-4 col-sm-6 col-6">
+    <div class="card text-center h-100 border-0 bg-transparent position-relative" data-category="travy">
+      <!-- Карусель для Мяты -->
+      <div id="carouselMintTrava" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="mint_trava.webp" class="d-block w-100 p-2 rounded-5" alt="Мята фото 1" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
+          </div>
+          <div class="carousel-item">
+            <img src="mint_trava.webp" class="d-block w-100 p-2 rounded-5" alt="Мята фото 2" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
+          </div>
+          <div class="carousel-item">
+            <img src="mint_trava.webp" class="d-block w-100 p-2 rounded-5" alt="Мята фото 3" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselMintTrava" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Предыдущий</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselMintTrava" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Следующий</span>
+        </button>
+      </div>
+      <!-- Содержимое карточки -->
+      <div class="card-body">
+        <h5 class="card-title fw-bold text-uppercase">Мята</h5>
+        <p class="card-text fw-bold fs-4">120 ₽</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Карточка: Ромашка -->
+  <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+    <div class="card text-center h-100 border-0 bg-transparent position-relative" data-category="travy">
+      <!-- Карусель для Ромашки -->
+      <div id="carouselChamomileTrava" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="chamomile_trava.webp" class="d-block w-100 p-2 rounded-5" alt="Ромашка фото 1" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
+          </div>
+          <div class="carousel-item">
+            <img src="chamomile_trava.webp" class="d-block w-100 p-2 rounded-5" alt="Ромашка фото 2" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
+          </div>
+          <div class="carousel-item">
+            <img src="chamomile_trava.webp" class="d-block w-100 p-2 rounded-5" alt="Ромашка фото 3" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselChamomileTrava" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Предыдущий</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselChamomileTrava" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Следующий</span>
+        </button>
+      </div>
+      <!-- Содержимое карточки -->
+      <div class="card-body">
+        <h5 class="card-title fw-bold text-uppercase">Ромашка</h5>
+        <p class="card-text fw-bold fs-4">140 ₽</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Карточка: Лаванда -->
+  <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+    <div class="card text-center h-100 border-0 bg-transparent position-relative" data-category="travy">
+      <!-- Карусель для Лаванды -->
+      <div id="carouselLavenderTrava" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="lavender_trava.webp" class="d-block w-100 p-2 rounded-5" alt="Лаванда фото 1" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
+          </div>
+          <div class="carousel-item">
+            <img src="lavender_trava.webp" class="d-block w-100 p-2 rounded-5" alt="Лаванда фото 2" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
+          </div>
+          <div class="carousel-item">
+            <img src="lavender_trava.webp" class="d-block w-100 p-2 rounded-5" alt="Лаванда фото 3" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselLavenderTrava" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Предыдущий</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselLavenderTrava" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Следующий</span>
+        </button>
+      </div>
+      <!-- Содержимое карточки -->
+      <div class="card-body">
+        <h5 class="card-title fw-bold text-uppercase">Лаванда</h5>
+        <p class="card-text fw-bold fs-4">160 ₽</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Карточка: Шалфей -->
+  <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+    <div class="card text-center h-100 border-0 bg-transparent position-relative" data-category="travy">
+      <!-- Карусель для Шалфея -->
+      <div id="carouselSageTrava" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="sage_trava.webp" class="d-block w-100 p-2 rounded-5" alt="Шалфей фото 1" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
+          </div>
+          <div class="carousel-item">
+            <img src="sage_trava.webp" class="d-block w-100 p-2 rounded-5" alt="Шалфей фото 2" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
+          </div>
+          <div class="carousel-item">
+            <img src="sage_trava.webp" class="d-block w-100 p-2 rounded-5" alt="Шалфей фото 3" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselSageTrava" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Предыдущий</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselSageTrava" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Следующий</span>
+        </button>
+      </div>
+      <!-- Содержимое карточки -->
+      <div class="card-body">
+        <h5 class="card-title fw-bold text-uppercase">Шалфей</h5>
+        <p class="card-text fw-bold fs-4">180 ₽</p>
+      </div>
+      
+    </div>
     
-    
+  </div>
+  <div id="otzav" class="text-center my-4">
+
+    <hr class="hr-line">
+    <h2 class="text-uppercase">ОТЗЫВЫ</h2>
+    <hr class="hr-line">
+  </div>
+    <!--
     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
         <div class="card text-center h-100 border-0 bg-transparent position-relative" data-category="travy">
             <img src="mint_trava.webp" class="card-img-top p-2 rounded-5" alt="Мята" loading="lazy" style="aspect-ratio: 1 / 1; object-fit: cover;">
@@ -381,54 +781,185 @@
             </div>
         </div>
     </div>
+-->
+<div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="8000">
+    <!-- Индикаторы (точки) -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#reviewsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Отзыв 1"></button>
+      <button type="button" data-bs-target="#reviewsCarousel" data-bs-slide-to="1" aria-label="Отзыв 2"></button>
+      <button type="button" data-bs-target="#reviewsCarousel" data-bs-slide-to="2" aria-label="Отзыв 3"></button>
+    </div>
+  
+    <!-- Слайды с отзывами -->
+    <div class="carousel-inner">
+      <!-- Отзыв 1 -->
+      <div class="carousel-item active">
+        <div class="d-flex justify-content-center">
+          <div class="review-card" style="max-width: 500px;">
+            <div class="review-header text-center p-3">
+              <img src="positive-beautiful-brunette-female-has-appealing-appearance-shows-ok-sign-being-satisfied-with-something-shows-her-approval.jpg" alt="Пользователь" class="review-avatar" width="70" height="70">
+              <h6 class="review-name mt-2">Сергей Кузнецов</h6>
+              <small class="review-date text-muted">21 февраля 2025</small>
+            </div>
+            <div class="review-body p-3">
+              <p class="review-text fst-italic">
+                "Отличный магазин! Товар пришёл быстро, всё аккуратно упаковано. Буду заказывать ещё!"
+              </p>
+            </div>
+            <div class="review-footer text-center p-2 bg-light">
+              <span class="review-rating text-warning">
+                &#9733; &#9733; &#9733; &#9733; &#9734;
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Отзыв 2 -->
+      <div class="carousel-item">
+        <div class="d-flex justify-content-center">
+          <div class="review-card" style="max-width: 500px;">
+            <div class="review-header text-center p-3">
+              <img src="positive-beautiful-brunette-female-has-appealing-appearance-shows-ok-sign-being-satisfied-with-something-shows-her-approval.jpg" alt="Пользователь" class="review-avatar" width="70" height="70">
+              <h6 class="review-name mt-2">Анна Петрова</h6>
+              <small class="review-date text-muted">1 марта 2025</small>
+            </div>
+            <div class="review-body p-3">
+              <p class="review-text fst-italic">
+                "Прекрасное качество, а главное — очень внимательный сервис. Рекомендую всем друзьям!"
+              </p>
+            </div>
+            <div class="review-footer text-center p-2 bg-light">
+              <span class="review-rating text-warning">
+                &#9733; &#9733; &#9733; &#9733; &#9733;
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Отзыв 3 -->
+      <div class="carousel-item">
+        <div class="d-flex justify-content-center">
+          <div class="review-card" style="max-width: 500px;">
+            <div class="review-header text-center p-3">
+              <img src="young-girl-isolated-showing-face-expressions.jpg" alt="Пользователь" class="review-avatar" width="70" height="70">
+              <h6 class="review-name mt-2">Дмитрий Соловьёв</h6>
+              <small class="review-date text-muted">10 марта 2025</small>
+            </div>
+            <div class="review-body p-3">
+              <p class="review-text fst-italic">
+                "Спасибо за отличные товары! Цены доступные, а доставка без задержек."
+              </p>
+            </div>
+            <div class="review-footer text-center p-2 bg-light">
+              <span class="review-rating text-warning">
+                &#9733; &#9733; &#9733; &#9733; &#9734;
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Кнопки "Назад" и "Вперёд" -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Предыдущий</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Следующий</span>
+    </button>
+</div>
 
+<!-- Галерея миниатюр -->
+<!-- Подключение Fancybox (CSS + JS) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
+<div id="gallery" class="my-5 text-center">
+    <hr class="hr-line">
+    <h2 class="text-uppercase">Галерея</h2>
+    <hr class="hr-line">
+  
+    <!-- Горизонтальный контейнер с миниатюрами -->
+    <div class="horizontal-gallery">
+      <!-- Миниатюра 1 -->
+      <a href="birch_venik.webp" 
+         data-fancybox="gallery" 
+         data-caption="Описание 1" 
+         class="gallery-link">
+        <img src="birch_venik.webp" alt="Фото 1">
+        <!-- Оверлей с иконкой -->
+        <div class="gallery-overlay">
+          <span class="gallery-overlay-icon">&#128269;</span>
+        </div>
+        <div class="gallery-caption">Нажмите для просмотра</div>
+      </a>
+      
+      <!-- Миниатюра 2 -->
+      <a href="sage_trava.webp" 
+         data-fancybox="gallery" 
+         data-caption="Описание 2" 
+         class="gallery-link">
+        <img src="sage_trava.webp" alt="Фото 2">
+        <div class="gallery-overlay">
+          <span class="gallery-overlay-icon">&#128269;</span>
+        </div>
+      </a>
+  
+      <!-- Миниатюра 3 -->
+      <a href="eucalyptus_venik.webp" 
+         data-fancybox="gallery" 
+         data-caption="Описание 3" 
+         class="gallery-link">
+        <img src="eucalyptus_venik.webp" alt="Фото 3">
+        <div class="gallery-overlay">
+          <span class="gallery-overlay-icon">&#128269;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+  
+  
+      
+      
+    
+  
+  
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    once: true, // анимация будет срабатывать только один раз при прокрутке
+  });
+</script>
+
+<script>
+    AOS.init({
+      once: true, // анимация будет срабатывать только один раз при прокрутке
+    });
+  </script>
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <button id="scrollTopBtn" class="contact-btn" type="button">
         <img src="free-icon-up-arrrows-5868467.png" alt="Call" class="phone-icon">
     </button>
-    
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const showVenikiBtn = document.getElementById("showVeniki");
-            const showTravyBtn = document.getElementById("showTravy");
-    
-            if (showVenikiBtn && showTravyBtn) {
-                showVenikiBtn.addEventListener("click", function () {
-                    filterProducts("veniki"); 
-                });
-    
-                showTravyBtn.addEventListener("click", function () {
-                    filterProducts("travy");
-                });
-            }
-    
-            function filterProducts(category) {
-                const products = document.querySelectorAll(".card");
-    
-                products.forEach(product => {
-                    if (product.getAttribute("data-category") === category) {
-                        product.parentElement.style.display = "block";
-                    } else {
-                        product.parentElement.style.display = "none";
-                    }
-                });
-            }
-        });
-    </script>
-    <script>
-        document.getElementById("showVeniki").addEventListener("click", function() {
-        document.getElementById("products").scrollIntoView({ behavior: "smooth" });
-        });
+    <script src="script_filter.js"></script>
 
-        document.getElementById("showTravy").addEventListener("click", function() {
-        document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+    <script>
+        // Инициализация модального окна
+        var searchModal = new bootstrap.Modal(document.getElementById('searchModal'));
+    
+        // Открытие модального окна при клике на кнопку поиска
+        document.getElementById('searchBtn').addEventListener('click', function() {
+          searchModal.show();
         });
-
-        document.getElementById("showAll").addEventListener("click", function() {
-        document.getElementById("products").scrollIntoView({ behavior: "smooth" });
-        });
-        </script>
+      </script>
+  
+    
         
     
     <script>
